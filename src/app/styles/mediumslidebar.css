@@ -1,0 +1,12 @@
+.scroll-container {
+  overflow-x: scroll; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping */
+  width: 100%; /* Ensure full width */
+}
+
+.scroll-content {
+  display: flex; /* Places items in a single row */
+  flex-direction: row; /* Ensures a horizontal layout */
+  gap: 15px; /* Adds spacing between items */
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
