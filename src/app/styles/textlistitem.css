@@ -1,0 +1,53 @@
+.list-item-container {
+  align-self: center;
+}
+
+.category-button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  flex-direction: column;
+  display: flex;
+  width: fit-content;
+}
+
+.textlist-row {
+  flex-direction: row;
+  display: flex;
+  width: fit-content;
+}
+.textlist-icon-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+  padding: 10;
+  position: absolute;
+}
+.textlist-text-container {
+  margin-left: 100px;
+
+  color: black;
+  text-align: left;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: "black";
+
+  font-family: "Madimi One";
+  letter-spacing: 1.26px;
+}
+
+.description {
+  font-size: 16px;
+  color: #33333376;
+
+  font-family: "Madimi One";
+  letter-spacing: 1.1px;
+}
+
+.skill-container {
+  margin-top: 10px;
+}
