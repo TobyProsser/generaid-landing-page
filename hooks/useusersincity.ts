@@ -1,7 +1,7 @@
-import { User } from "@/components/types";
-import { auth, firestore } from "@/firebaseConfig"; // Adjust the path to your Firebase config
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { auth, firestore } from "../firebaseConfig";
+import { User } from "../src/app/components/items/items/types";
 
 const useUsersInCity = () => {
   const [users, setUsers] = useState<User[]>([]); // Specify the type for `users`
@@ -67,9 +67,12 @@ const useUsersInCity = () => {
         });
 
         setUsers(fetchedUsers);
-      } catch (err: any) {
-        setError(err.message || "An error occurred while fetching users.");
-        setUsers([]);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Failed to fetch posts.");
+        }
       } finally {
         setLoading(false);
       }

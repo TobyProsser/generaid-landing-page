@@ -1,7 +1,7 @@
-import { Post } from "@/components/types";
-import { firestore } from "@/firebaseConfig";
+import { Post } from "@components/app/components/items/items/types";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { firestore } from "../firebaseConfig";
 
 const useFetchPosts = (skillCategoryId: string, userCity: string) => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -40,8 +40,12 @@ const useFetchPosts = (skillCategoryId: string, userCity: string) => {
         });
         console.log("post data: " + postsData.length);
         setPosts(postsData);
-      } catch (err: any) {
-        setError(err.message || "Failed to fetch posts.");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Failed to fetch posts.");
+        }
       } finally {
         setLoading(false);
       }

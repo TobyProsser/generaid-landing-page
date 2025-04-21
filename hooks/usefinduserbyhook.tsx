@@ -1,8 +1,7 @@
-import { User } from "@/components/types";
-import { firestore } from "@/firebaseConfig"; // Adjust the path to your Firebase config
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-
+import { firestore } from "../firebaseConfig";
+import { User } from "../src/app/components/items/items/types";
 /**
  * Custom hook to find a user by their ID in Firestore.
  * @param userId - The ID of the user to search for.
@@ -36,9 +35,12 @@ const useFindUserByID = (userId: string) => {
           id: userSnapshot.docs[0].id,
           ...userData, // Spread other user properties
         } as User);
-      } catch (err: any) {
-        setError(err.message || "An error occurred while fetching the user.");
-        setUser(null);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Failed to fetch posts.");
+        }
       } finally {
         setLoading(false);
       }

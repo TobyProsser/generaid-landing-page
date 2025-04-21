@@ -3,8 +3,8 @@
 import Image from "next/image"; // Next.js optimized image component
 
 import { Timestamp } from "firebase/firestore";
-import SearchBar from "./components/items/items/items/searchbar";
-import SmallTextButton from "./components/items/items/items/smalltextbutton";
+import Colors from "../../constants/Colors";
+import Header from "./components/items/items/sections/header";
 import PageGrid from "./components/items/items/sections/pagegrid";
 import MediumSlideBar from "./components/items/items/sliding/mediumslidebar";
 import { Post, skillCategory } from "./components/items/items/types";
@@ -12,8 +12,8 @@ const informationCategories: skillCategory[] = [
   {
     id: "1",
     name: "What's Our Goal?",
-    icon: "code",
-    relatedSkills: "HTML, CSS, JavaScript, React",
+    icon: "flag",
+    relatedSkills: "/goals",
     startColor: "#FF5733",
     endColor: "#FFBD33",
     description: "Our mission and vision statements along with...",
@@ -40,22 +40,22 @@ const informationCategories: skillCategory[] = [
 
 const socialMediaCategories: skillCategory[] = [
   {
-    id: "1",
-    name: "What's Our Goal?",
-    icon: "code",
+    id: "social1",
+    name: "Instagram",
+    icon: "logo-instagram",
     relatedSkills: "HTML, CSS, JavaScript, React",
-    startColor: "#FF5733",
-    endColor: "#FFBD33",
-    description: "Our mission and vision statements along with...",
+    startColor: Colors.orangePinkStart,
+    endColor: Colors.orangePinkEnd,
+    description: "Follow us on Instagram!",
   },
   {
-    id: "2",
-    name: "Where We Are",
-    icon: "bar-chart",
+    id: "social2",
+    name: "logo-facebook",
+    icon: "logo-facebook",
     relatedSkills: "Python, Pandas, Machine Learning",
-    startColor: "#33FF57",
-    endColor: "#33FFBD",
-    description: "This is an updated blog to keep up to date on the...",
+    startColor: Colors.darkBlueStart,
+    endColor: Colors.darkBlueEnd,
+    description: "Follow us on Facebook!",
   },
 ];
 
@@ -111,21 +111,10 @@ export default function Home() {
           className="home-image"
         />
 
-        {/* Title Below Image */}
-        <h1 className="home-title">Welcome to Project Generaid</h1>
+        <Header />
 
         {/* Column Layout */}
         <div className="column-layout">
-          <SearchBar height={50} />
-
-          {/* Row of Gradient Buttons */}
-          <div className="button-row">
-            <SmallTextButton text="Categories" />
-            <SmallTextButton text="Documentation" />
-            <SmallTextButton text="Donate" />
-            <SmallTextButton text="Contact" />
-          </div>
-
           {/* Second Title */}
           <h2 className="section-title">Popular</h2>
 

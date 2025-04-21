@@ -1,6 +1,6 @@
-import { skillCategory } from "@/components/types";
-import { auth, firestore } from "@/firebaseConfig";
+import { skillCategory } from "@components/app/components/items/items/types";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { auth, firestore } from "../firebaseConfig";
 
 export const fetchUserRecentCategories = async (): Promise<skillCategory[]> => {
   try {

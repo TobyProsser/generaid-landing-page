@@ -1,9 +1,9 @@
-import { Post } from "@/components/types";
-import { firestore } from "@/firebaseConfig";
+import { Post } from "@components/app/components/items/items/types";
 import { collection, getDocs } from "firebase/firestore";
+import { firestore } from "../firebaseConfig";
 const fetchCityPosts = async (city: string) => {
   try {
-    let allPosts: Post[] = [];
+    const allPosts: Post[] = [];
 
     // Get all category IDs inside `posts/${city}/categories`
     const categoriesRef = collection(firestore, `posts/${city}/categories`);

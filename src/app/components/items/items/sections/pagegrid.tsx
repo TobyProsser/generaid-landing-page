@@ -53,6 +53,7 @@ const PageGrid: React.FC<PageGridProps> = ({ posts, listData1, listData2 }) => {
           <TextList data={listData2} />
         </div>
       </div>
+      <div className="spacer" />
     </div>
   );
 };

@@ -29,7 +29,7 @@ const PostItem: React.FC<PostItemProps> = ({ item, skeleton }) => {
     <div className="post-container">
       <button className="post-button" onClick={() => handlePress(item.id)}>
         <div className="content-row">
-          <div className="post-container">
+          <div className="medium-catergory-container">
             <RenderCategoryItem
               item={item.skillCategoryId}
               width={253}
@@ -44,17 +44,18 @@ const PostItem: React.FC<PostItemProps> = ({ item, skeleton }) => {
                 <p className="price-text">${item?.price}</p>
               </div>
             </div>
-            <div className="spacer" />
-            <div className="profile-container">
-              <img
-                src={`/profile_pictures/${item?.id}/coverImage`}
-                alt="Profile"
-                className="profile-image"
-              />
+            <div className="profile-container-align">
+              <div className="profile-container">
+                <img
+                  src={`/profile_pictures/${item?.id}/coverImage`}
+                  alt="Profile"
+                  className="profile-image"
+                />
+              </div>
             </div>
           </div>
         </div>
-
+        <div style={{ height: 20 }} />
         <div className="description-container">
           <p className="description-text">{item?.description || ""}</p>
         </div>
@@ -66,7 +67,7 @@ const PostItem: React.FC<PostItemProps> = ({ item, skeleton }) => {
         <RenderCategoryItem
           item={mockCategory}
           width={253}
-          height={138}
+          height={150}
           loading={true}
         />
 

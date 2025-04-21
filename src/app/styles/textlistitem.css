@@ -26,15 +26,15 @@
 }
 .textlist-text-container {
   margin-left: 100px;
-
-  color: black;
+  height: 85;
+  color: #333;
   text-align: left;
 }
 
 .title {
   font-size: 20px;
   font-weight: bold;
-  color: "black";
+  color: #333333d4;
 
   font-family: "Madimi One";
   letter-spacing: 1.26px;

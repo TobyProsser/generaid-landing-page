@@ -1,18 +1,21 @@
 "use client";
 
-import { skillCategory } from "../types";
-
-import { LogoIonic } from "react-ionicons";
-import Colors from "../../../../../../constants/Colors";
+import { useRouter } from "next/navigation";
+import * as Ionicons from "react-ionicons";
 import "../../../../styles/textlistitem.css";
-
+import DynamicIcon from "../dynamicicon";
+import { skillCategory } from "../types";
+declare module "react-ionicons";
 interface TextListItemProps {
   data: skillCategory;
   loading: boolean;
 }
 
 const TextListItem: React.FC<TextListItemProps> = ({ data, loading }) => {
-  const handleClick = () => {};
+  const router = useRouter();
+  const handleClick = () => {
+    router.push(data.relatedSkills);
+  };
 
   return (
     <div className="list-item-container">
@@ -23,10 +26,13 @@ const TextListItem: React.FC<TextListItemProps> = ({ data, loading }) => {
             style={{
               background: loading
                 ? `linear-gradient(to right, #c0c0c0, #c0c0c0)`
-                : `linear-gradient(to right, ${Colors.pinkBlueStart}, ${Colors.pinkBlueEnd})`,
+                : `linear-gradient(to right, ${data.startColor}, ${data.endColor})`,
             }}
           >
-            <LogoIonic size={40} color="white" />
+            <DynamicIcon
+              size={40}
+              iconName={data.icon as keyof typeof Ionicons}
+            />
           </div>
 
           <div className="textlist-text-container">

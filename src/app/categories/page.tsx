@@ -1,16 +1,10 @@
-"use client";
-
+"use client"; // Required for state and effects
 import { useEffect, useState } from "react";
-import Colors from "../../../../../../constants/Colors";
-import { fetchCategories } from "../../../../../../utils/firestoreHelpers";
-import RenderCategoryItem from "../items/mediumslideritem";
-import { skillCategory } from "../types";
-// Required for Next.js Client Component
-import "../../../../styles/mediumslidebar.css";
-type MediumSlideBarProps = {
-  width: number;
-  height: number;
-};
+import Colors from "../../../constants/Colors";
+import { fetchCategories } from "../../../utils/firestoreHelpers";
+import RenderCategoryItem from "../components/items/items/items/mediumslideritem";
+import Header from "../components/items/items/sections/header";
+import { skillCategory } from "../components/items/items/types";
 
 const randomColors = [
   { start: Colors.pinkBlueStart, end: Colors.pinkBlueEnd },
@@ -18,7 +12,7 @@ const randomColors = [
   { start: Colors.orangePinkStart, end: Colors.orangePinkEnd },
 ];
 
-const MediumSlideBar = ({ width, height }: MediumSlideBarProps) => {
+const CategoriesPage = () => {
   const [categories, setCategories] = useState<skillCategory[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +22,7 @@ const MediumSlideBar = ({ width, height }: MediumSlideBarProps) => {
         setLoading(true);
 
         // Check for cached data
-        const cachedData = localStorage.getItem("categories"); // Use localStorage instead of AsyncStorage
+        const cachedData = localStorage.getItem("categories");
         if (cachedData) {
           setCategories(JSON.parse(cachedData));
           console.log("Loaded categories from cache.");
@@ -50,7 +44,6 @@ const MediumSlideBar = ({ width, height }: MediumSlideBarProps) => {
         setCategories(updatedCategories);
         localStorage.setItem("categories", JSON.stringify(updatedCategories));
         console.log("Updated categories in cache.");
-        setLoading(false);
       } catch (error) {
         console.error("Error loading categories:", error);
       } finally {
@@ -62,34 +55,28 @@ const MediumSlideBar = ({ width, height }: MediumSlideBarProps) => {
   }, []);
 
   return (
-    <div className="scroll-container">
-      <div className="scroll-content scrolling-parent-container">
-        {!loading
-          ? categories.slice(0, 4).map(
-              (
-                item // Only load first 3 items
-              ) => (
-                <RenderCategoryItem
-                  key={item.id}
-                  item={item.id}
-                  width={width}
-                  height={height}
-                  loading={loading}
-                />
-              )
-            )
-          : [...Array(3)].map((_, index) => (
+    <div style={{ backgroundColor: "white" }}>
+      <div className="categories-page">
+        <Header showLogo={true} />
+
+        {loading ? (
+          <p>Loading categories...</p>
+        ) : (
+          <div className="categories-grid">
+            {categories.map((category) => (
               <RenderCategoryItem
-                key={index}
-                width={width}
-                height={height}
-                loading={true}
-                item=""
+                key={category.id + 1232}
+                item={category.id}
+                width={300}
+                height={150}
+                loading={loading}
               />
             ))}
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default MediumSlideBar;
+export default CategoriesPage;

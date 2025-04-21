@@ -3,12 +3,13 @@ import Colors from "../../../../../../constants/Colors";
 
 type SmallTextButtonProps = {
   text: string;
+  onClick?: () => void;
 };
 
-const SmallTextButton: React.FC<SmallTextButtonProps> = ({ text }) => {
+const SmallTextButton: React.FC<SmallTextButtonProps> = ({ text, onClick }) => {
   return (
     <button
-      onClick={() => {}}
+      onClick={onClick}
       style={{
         background: `linear-gradient(135deg, ${Colors.darkBlueStart}, ${Colors.darkBlueEnd})`,
         padding: "6px 24px",

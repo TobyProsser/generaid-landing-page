@@ -11,10 +11,12 @@
   "dependencies": {
     "@firebase/firestore": "^4.7.10",
     "firebase": "^11.6.0",
+    "ionicons": "^7.4.0",
     "next": "15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-ionicons": "^4.2.1"
+    "react-ionicons": "^4.2.1",
+    "react-router-dom": "^7.5.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

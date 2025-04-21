@@ -1,12 +1,15 @@
 .scroll-container {
-  overflow-x: scroll; /* Enables horizontal scrolling */
+  overflow-x: auto; /* Enables horizontal scrolling */
   white-space: nowrap; /* Prevents wrapping */
   width: 100%; /* Ensure full width */
+
+  flex-direction: row; /* Ensures a horizontal layout */
+  scrollbar-width: none;
+  scrollbar-color: black transparent;
 }
 
 .scroll-content {
   display: flex; /* Places items in a single row */
-  flex-direction: row; /* Ensures a horizontal layout */
   gap: 15px; /* Adds spacing between items */
   flex-wrap: nowrap; /* Prevent wrapping */
 }
@@ -23,4 +26,12 @@
   width: 60%;
   color: black;
   text-align: left;
+}
+
+.scrolling-parent-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar on WebKit-based browsers */
+  background-color: brown;
+  scrollbar-color: brown;
+  scrollbar-track-color: brown;
+  margin: 5px;
 }
