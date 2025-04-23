@@ -1,10 +1,10 @@
 "use client"; // Required for state and effects
 import { useEffect, useState } from "react";
-import Colors from "../../../constants/Colors";
 import { fetchCategories } from "../../../utils/firestoreHelpers";
 import RenderCategoryItem from "../components/items/items/items/mediumslideritem";
 import Header from "../components/items/items/sections/header";
 import { skillCategory } from "../components/items/items/types";
+import Colors from "../constants/Colors";
 
 const randomColors = [
   { start: Colors.pinkBlueStart, end: Colors.pinkBlueEnd },

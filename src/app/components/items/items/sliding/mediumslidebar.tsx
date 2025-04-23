@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Colors from "../../../../../../constants/Colors";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { fetchCategories } from "../../../../../../utils/firestoreHelpers";
+import Colors from "../../../../constants/Colors";
+import "../../../../styles/mediumslidebar.css";
 import RenderCategoryItem from "../items/mediumslideritem";
 import { skillCategory } from "../types";
-// Required for Next.js Client Component
-import "../../../../styles/mediumslidebar.css";
+
 type MediumSlideBarProps = {
   width: number;
   height: number;
+  setDataLoaded?: (value: boolean) => void;
 };
 
 const randomColors = [
@@ -18,23 +20,22 @@ const randomColors = [
   { start: Colors.orangePinkStart, end: Colors.orangePinkEnd },
 ];
 
-const MediumSlideBar = ({ width, height }: MediumSlideBarProps) => {
+const MediumSlideBar = ({
+  width,
+  height,
+  setDataLoaded,
+}: MediumSlideBarProps) => {
   const [categories, setCategories] = useState<skillCategory[]>([]);
   const [loading, setLoading] = useState(true);
+  const [enteredCount, setEnteredCount] = useState(0);
+
+  const ref = useRef(null);
+  const isInView = useInView(ref);
 
   useEffect(() => {
     const loadCategories = async () => {
       try {
         setLoading(true);
-
-        // Check for cached data
-        const cachedData = localStorage.getItem("categories"); // Use localStorage instead of AsyncStorage
-        if (cachedData) {
-          setCategories(JSON.parse(cachedData));
-          console.log("Loaded categories from cache.");
-        }
-
-        // Fetch fresh data from Firestore
         const fetchedCategories = await fetchCategories();
         const updatedCategories = fetchedCategories.map((category) => {
           if (!category.startColor || !category.endColor) {
@@ -46,48 +47,61 @@ const MediumSlideBar = ({ width, height }: MediumSlideBarProps) => {
           return category;
         });
 
-        // Update state and cache
         setCategories(updatedCategories);
-        localStorage.setItem("categories", JSON.stringify(updatedCategories));
-        console.log("Updated categories in cache.");
         setLoading(false);
+        setDataLoaded?.(true);
       } catch (error) {
         console.error("Error loading categories:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
     loadCategories();
   }, []);
 
+  useEffect(() => {
+    if (isInView) {
+      setEnteredCount((prev) => prev + 1);
+    }
+  }, [isInView]);
+
   return (
-    <div className="scroll-container">
-      <div className="scroll-content scrolling-parent-container">
-        {!loading
-          ? categories.slice(0, 4).map(
-              (
-                item // Only load first 3 items
-              ) => (
+    <div className="med-wrapper">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: enteredCount === 1 ? 100 : 50,
+          damping: enteredCount === 1 ? 8 : 6,
+        }}
+        whileInView={enteredCount > 1 ? { x: [-10, 10] } : {}}
+        className="scroll-container"
+      >
+        <div className="scroll-content scrolling-parent-container">
+          {!loading
+            ? categories
+                .slice(0, 4)
+                .map((item) => (
+                  <RenderCategoryItem
+                    key={item.id}
+                    item={item.id}
+                    width={width}
+                    height={height}
+                    loading={loading}
+                  />
+                ))
+            : [...Array(3)].map((_, index) => (
                 <RenderCategoryItem
-                  key={item.id}
-                  item={item.id}
+                  key={index}
                   width={width}
                   height={height}
-                  loading={loading}
+                  loading={true}
+                  item=""
                 />
-              )
-            )
-          : [...Array(3)].map((_, index) => (
-              <RenderCategoryItem
-                key={index}
-                width={width}
-                height={height}
-                loading={true}
-                item=""
-              />
-            ))}
-      </div>
+              ))}
+        </div>
+      </motion.div>
     </div>
   );
 };

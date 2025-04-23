@@ -37,7 +37,9 @@ const TextListItem: React.FC<TextListItemProps> = ({ data, loading }) => {
 
           <div className="textlist-text-container">
             <p className="title">{data.name}</p>
-            <p className="description">{data.description}</p>
+            <div style={{ maxWidth: 280 }}>
+              <p className="description">{data.description}</p>
+            </div>
           </div>
         </div>
       </button>

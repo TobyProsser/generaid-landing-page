@@ -1,11 +1,12 @@
 .scroll-container {
   overflow-x: auto; /* Enables horizontal scrolling */
-  white-space: nowrap; /* Prevents wrapping */
-  width: 100%; /* Ensure full width */
-
+  display: flex;
+  flex-wrap: nowrap; /* Prevents wrapping */
+  width: 100vw;
   flex-direction: row; /* Ensures a horizontal layout */
   scrollbar-width: none;
   scrollbar-color: black transparent;
+  padding-left: 5%;
 }
 
 .scroll-content {
@@ -30,8 +31,6 @@
 
 .scrolling-parent-container::-webkit-scrollbar {
   display: none; /* Hide scrollbar on WebKit-based browsers */
-  background-color: brown;
-  scrollbar-color: brown;
-  scrollbar-track-color: brown;
-  margin: 5px;
+}
+.med-wrapper {
 }

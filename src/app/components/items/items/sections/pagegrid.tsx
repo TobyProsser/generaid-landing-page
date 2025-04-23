@@ -20,7 +20,9 @@ const PageGrid: React.FC<PageGridProps> = ({ posts, listData1, listData2 }) => {
           Learn more about our mission!
         </h3>
         <div className="spacer" />
-        <TextList data={listData1} />
+        <div style={{ marginLeft: "5%" }}>
+          <TextList data={listData1} />
+        </div>
       </div>
 
       <div className="section">
@@ -29,7 +31,9 @@ const PageGrid: React.FC<PageGridProps> = ({ posts, listData1, listData2 }) => {
           A recent post made on Generaid
         </h3>
         <div className="spacer" />
-        <PostItem item={posts[0]} />
+        <div className="centered" style={{ marginLeft: "7%" }}>
+          <PostItem item={posts[0]} />
+        </div>
       </div>
 
       <div className="section">
@@ -49,7 +53,7 @@ const PageGrid: React.FC<PageGridProps> = ({ posts, listData1, listData2 }) => {
           Follow us on our socials!
         </h3>
         <div className="spacer" />
-        <div className="centered">
+        <div className="centered" style={{ marginLeft: "10%" }}>
           <TextList data={listData2} />
         </div>
       </div>

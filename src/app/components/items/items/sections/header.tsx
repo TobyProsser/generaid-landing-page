@@ -38,7 +38,9 @@ const Header: React.FC<HeaderProps> = ({ showLogo = false }) => {
 
       {/* Title Below Image */}
       <h1 className="home-title">Welcome to Project Generaid</h1>
-      <SearchBar height={50} />
+      <div className="searchwrap">
+        <SearchBar height={50} />
+      </div>
 
       {/* Row of Gradient Buttons */}
       <div className="button-row">

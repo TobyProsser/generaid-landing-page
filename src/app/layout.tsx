@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
 import { NavigationProvider } from "./context/NavigationProvider";
 import "./globals.css";
 
@@ -26,6 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap"
           rel="stylesheet"

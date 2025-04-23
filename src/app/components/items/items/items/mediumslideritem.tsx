@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { LogoNodejs } from "react-ionicons";
-import Colors from "../../../../../../constants/Colors";
 import { fetchCategoryById } from "../../../../../../utils/firestoreHelpers";
+import Colors from "../../../../constants/Colors";
 import { skillCategory } from "../types";
 
 type RenderCategoryItemProps = {
