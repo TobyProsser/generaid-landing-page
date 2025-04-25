@@ -1,7 +1,7 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { auth, firestore } from "../firebaseConfig";
-import { User } from "../src/app/components/items/items/types";
+import { User } from "../src/app/components/items/types";
+import { auth, firestore } from "../src/firebase/firebaseConfig";
 
 const useUsersInCity = () => {
   const [users, setUsers] = useState<User[]>([]); // Specify the type for `users`

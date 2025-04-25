@@ -2,11 +2,11 @@
 
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { fetchCategories } from "../../../../../../utils/firestoreHelpers";
-import Colors from "../../../../constants/Colors";
-import "../../../../styles/mediumslidebar.css";
+import Colors from "../../../constants/Colors";
+import { skillCategory } from "../../../constants/types";
+import "../../../styles/mediumslidebar.css";
+import { fetchCategories } from "../../../utils/firestoreHelpers";
 import RenderCategoryItem from "../items/mediumslideritem";
-import { skillCategory } from "../types";
 
 type MediumSlideBarProps = {
   width: number;

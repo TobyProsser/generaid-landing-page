@@ -1,6 +1,6 @@
-import { Post } from "@components/app/components/items/items/types";
+import { Post } from "@components/app/components/items/types";
 import { collection, getDocs } from "firebase/firestore";
-import { firestore } from "../firebaseConfig";
+import { firestore } from "../src/firebase/firebaseConfig";
 const fetchCityPosts = async (city: string) => {
   try {
     const allPosts: Post[] = [];

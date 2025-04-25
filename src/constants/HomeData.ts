@@ -1,5 +1,5 @@
 import { Timestamp } from "firebase/firestore";
-import { Post, skillCategory } from "../components/items/items/types";
+import { Post, skillCategory } from "../components/items/types";
 import Colors from "../constants/Colors";
 
 export const informationCategories: skillCategory[] = [

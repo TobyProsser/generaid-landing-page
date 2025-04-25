@@ -1,5 +1,4 @@
-import React from "react";
-import "../../../../styles/grid.css"; // Importing CSS styles
+import "../../../styles/grid.css";
 
 const defaultGradients = [
   "linear-gradient(to right, #ff7e5f, #feb47b)",

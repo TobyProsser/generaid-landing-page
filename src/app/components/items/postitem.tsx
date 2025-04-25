@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import "../../../../styles/postitem.css";
-import { Post } from "../types";
+import { Post } from "../../../constants/types";
+import "../../../styles/postitem.css";
 import RenderCategoryItem from "./mediumslideritem";
 
 interface PostItemProps {

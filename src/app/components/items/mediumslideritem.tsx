@@ -2,10 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import { LogoNodejs } from "react-ionicons";
-import { fetchCategoryById } from "../../../../../../utils/firestoreHelpers";
-import Colors from "../../../../constants/Colors";
-import "../../../../styles/mediumslideritem.css";
-import { skillCategory } from "../types";
+import Colors from "../../../constants/Colors";
+import { skillCategory } from "../../../constants/types";
+import "../../../styles/textlistitem.css";
+import { fetchCategoryById } from "../../../utils/firestoreHelpers";
 
 type RenderCategoryItemProps = {
   item: string;

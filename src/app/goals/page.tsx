@@ -1,6 +1,6 @@
 "use client"; // Required for state and effects
 
-import Header from "../components/items/items/sections/header";
+import Header from "../components/items/sections/header";
 
 const CategoriesPage = () => {
   return (

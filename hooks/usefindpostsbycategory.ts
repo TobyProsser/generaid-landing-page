@@ -1,7 +1,7 @@
-import { Post } from "@components/app/components/items/items/types";
+import { Post } from "@components/app/components/items/types";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { firestore } from "../firebaseConfig";
+import { firestore } from "../src/firebase/firebaseConfig";
 
 const useFetchPosts = (skillCategoryId: string, userCity: string) => {
   const [posts, setPosts] = useState<Post[]>([]);

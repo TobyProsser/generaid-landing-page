@@ -2,9 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import * as Ionicons from "react-ionicons";
-import "../../../../styles/textlistitem.css";
+import { skillCategory } from "../../../constants/types";
+import "../../../styles/textlistitem.css";
 import DynamicIcon from "../dynamicicon";
-import { skillCategory } from "../types";
 declare module "react-ionicons";
 interface TextListItemProps {
   data: skillCategory;

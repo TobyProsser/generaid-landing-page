@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Header from "../components/items/items/sections/header";
+import Header from "../components/items/sections/header";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({

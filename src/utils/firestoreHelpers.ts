@@ -1,9 +1,4 @@
 import {
-  PostTags,
-  Review,
-  skillCategory,
-} from "@components/app/components/items/items/types";
-import {
   arrayUnion,
   collection,
   doc,
@@ -14,7 +9,8 @@ import {
   where,
 } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { auth, firestore, storage } from "../firebaseConfig";
+import { PostTags, Review, skillCategory } from "../constants/types";
+import { auth, firestore, storage } from "../firebase/firebaseConfig";
 // Fetch posts for a given user ID
 export const fetchPostsByUserId = async (userId: string) => {
   try {

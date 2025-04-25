@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
-import "../../../../styles/textlist.css";
+import { skillCategory } from "../../../constants/types";
+import "../../../styles/textlist.css";
 import TextListItem from "../items/textlistitem";
-import { skillCategory } from "../types";
 
 type TextListProps = {
   data: skillCategory[] | null;

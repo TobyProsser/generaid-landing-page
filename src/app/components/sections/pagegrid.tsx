@@ -1,8 +1,8 @@
 import React from "react";
+import { Post, skillCategory } from "../../../constants/types";
 import Grid from "../items/grid";
 import PostItem from "../items/postitem";
 import TextList from "../sliding/textlist";
-import { Post, skillCategory } from "../types";
 
 interface PageGridProps {
   images: string[];

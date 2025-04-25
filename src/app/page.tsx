@@ -7,10 +7,10 @@ import {
   fakePosts,
   informationCategories,
   socialMediaCategories,
-} from "../app/constants/HomeData";
-import Header from "./components/items/items/sections/header";
-import PageGrid from "./components/items/items/sections/pagegrid";
-import MediumSlideBar from "./components/items/items/sliding/mediumslidebar";
+} from "../constants/HomeData";
+import Header from "./components/sections/header";
+import PageGrid from "./components/sections/pagegrid";
+import MediumSlideBar from "./components/sliding/mediumslidebar";
 
 export default function Home() {
   const [dataLoaded, setDataLoaded] = useState(false);
