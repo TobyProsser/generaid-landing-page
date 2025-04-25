@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { LogoNodejs } from "react-ionicons";
 import { fetchCategoryById } from "../../../../../../utils/firestoreHelpers";
 import Colors from "../../../../constants/Colors";
+import "../../../../styles/mediumslideritem.css";
 import { skillCategory } from "../types";
 
 type RenderCategoryItemProps = {
@@ -49,7 +50,6 @@ const RenderCategoryItem: React.FC<RenderCategoryItemProps> = ({
       style={{
         width: `${width}px`,
         height: `${height}px`,
-
         background: loading
           ? `linear-gradient(to right, ${loadingColors[0]}, ${loadingColors[1]})`
           : `linear-gradient(to right, ${colors[0]}, ${colors[1]})`,
@@ -57,12 +57,10 @@ const RenderCategoryItem: React.FC<RenderCategoryItemProps> = ({
       onClick={() => {}}
     >
       <div className="gradient-overlay">
-        {height >= 100 && (
-          <div className="icon-container">
-            <LogoNodejs name={category?.icon} size={60} color="white" />
-          </div>
-        )}
-        <div className="text-container">
+        <div className="icon-container">
+          <LogoNodejs name={category?.icon} size={60} color="white" />
+        </div>
+        <div className="medium-item-text-container">
           {(() => {
             const maxLength = 13;
             const text = category?.name || "";

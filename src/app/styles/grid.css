@@ -1,14 +1,13 @@
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 105px);
   gap: 10px;
-  width: 300px;
-  position: relative;
-  left: 15%;
+  justify-self: center;
 }
 
 .grid-item {
   width: 100px;
   height: 100px;
+
   border-radius: 15px;
 }

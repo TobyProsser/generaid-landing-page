@@ -84,6 +84,7 @@ body {
   border-radius: 10px;
   width: 90%;
   height: auto;
+  align-self: center;
 }
 
 .home-title {
@@ -143,7 +144,15 @@ body {
   }
 
   .home-image {
-    margin-top: 50%;
+    margin-top: 30%;
+  }
+  .headerSpacer {
+    height: 50;
+    width: 100%;
+  }
+  .mobileSpacer {
+    height: 30;
+    width: 100%;
   }
 }
 
@@ -169,6 +178,7 @@ body {
 .title-centered {
   align-self: center;
   text-align: center;
+  margin-left: 0%;
 }
 .section-subtitle {
   align-self: flex-start;
@@ -176,7 +186,6 @@ body {
   font-size: 18px;
   color: #24242436;
   font-weight: bold;
-  margin-left: 5%;
   letter-spacing: 1.26px;
 }
 .section {
@@ -201,33 +210,12 @@ body {
   font-style: normal;
 }
 
-.category-button {
-  border: none;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-  flex-shrink: 0; /* Prevents shrinking */
-}
-
-.gradient-overlay {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  border-radius: 10px;
-  padding-top: 20%;
-  position: relative;
-}
-
-.icon-container {
-  position: absolute;
-  top: -5;
-  right: -5px;
-}
-
 .text-container {
   align-self: flex-start;
+  padding-top: 20%;
+  width: 100%;
+
+  background-color: brown;
 }
 
 .button-text {
@@ -241,7 +229,6 @@ body {
 
 .primary-text {
   font-size: 32px;
-  position: relative;
 }
 
 .secondary-text {
@@ -255,6 +242,15 @@ body {
   align-content: center;
   justify-content: center;
   align-items: center;
+}
+.grid-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.align-medium-bar {
+  align-content: flex-start;
 }
 
 .categories-page {

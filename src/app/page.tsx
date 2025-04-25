@@ -52,16 +52,16 @@ export default function Home() {
       <div className="home-container">
         {/* Large Centered Image */}
         <img src="/images/Logo.png" alt="Logo" className="home-image" />
-
+        <div className="headerSpacer" />
         <Header />
-
+        <div className="mobileSpacer" />
         {/* Column Layout */}
         <div className="column-layout">
           {/* Second Title */}
           <h2 className="section-title">Popular</h2>
 
           {/* MediumSlideBar Component */}
-          <div>
+          <div className="align-medium-bar">
             <MediumSlideBar
               width={300}
               height={150}
