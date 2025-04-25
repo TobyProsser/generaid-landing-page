@@ -23,6 +23,7 @@
   border-radius: 15px;
   padding: 10;
   position: absolute;
+  align-content: center;
 }
 .textlist-text-container {
   margin-left: 100px;

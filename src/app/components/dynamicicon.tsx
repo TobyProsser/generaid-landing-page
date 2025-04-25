@@ -1,4 +1,4 @@
-import React from "react";
+import { CloseOutline } from "react-ionicons";
 import iconMap from "../../utils/iconMap";
 
 interface DynamicIconProps {
@@ -7,12 +7,10 @@ interface DynamicIconProps {
 }
 
 const DynamicIcon: React.FC<DynamicIconProps> = ({ iconName, size = 40 }) => {
-  const IconComponent = iconMap[iconName];
+  const IconComponent = iconMap[iconName] || CloseOutline; // Use "X" if icon is missing
 
-  return IconComponent ? (
+  return (
     <IconComponent color="white" width={`${size}px`} height={`${size}px`} />
-  ) : (
-    <p>Icon not found</p>
   );
 };
 

@@ -1,5 +1,5 @@
 "use client";
-import Header from "../components/items/sections/header";
+import Header from "../components/sections/header";
 
 const PDFPage = () => {
   return (

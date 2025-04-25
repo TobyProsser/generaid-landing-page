@@ -1,7 +1,7 @@
-import { Post } from "@components/app/components/items/types";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { auth, firestore } from "../src/firebase/firebaseConfig";
+import { Post } from "../constants/types";
+import { auth, firestore } from "../firebase/firebaseConfig";
 
 export const useFetchUserPosts = () => {
   const [posts, setPosts] = useState<Post[]>([]);

@@ -29,10 +29,12 @@ const TextListItem: React.FC<TextListItemProps> = ({ data, loading }) => {
                 : `linear-gradient(to right, ${data.startColor}, ${data.endColor})`,
             }}
           >
-            <DynamicIcon
-              size={40}
-              iconName={data.icon as keyof typeof Ionicons}
-            />
+            <div className="centered">
+              <DynamicIcon
+                size={60}
+                iconName={data.icon as keyof typeof Ionicons}
+              />
+            </div>
           </div>
 
           <div className="textlist-text-container">

@@ -241,6 +241,7 @@ body {
   align-self: center;
   align-content: center;
   justify-content: center;
+  justify-self: center;
   align-items: center;
 }
 .grid-align {

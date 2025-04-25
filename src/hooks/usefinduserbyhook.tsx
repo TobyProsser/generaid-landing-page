@@ -1,7 +1,7 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { User } from "../src/app/components/items/types";
-import { firestore } from "../src/firebase/firebaseConfig";
+import { User } from "../constants/types";
+import { firestore } from "../firebase/firebaseConfig";
 /**
  * Custom hook to find a user by their ID in Firestore.
  * @param userId - The ID of the user to search for.

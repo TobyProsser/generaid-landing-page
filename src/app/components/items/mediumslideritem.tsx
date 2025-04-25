@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { LogoNodejs } from "react-ionicons";
 import Colors from "../../../constants/Colors";
 import { skillCategory } from "../../../constants/types";
-import "../../../styles/textlistitem.css";
+import "../../../styles/mediumslideritem.css";
 import { fetchCategoryById } from "../../../utils/firestoreHelpers";
+import DynamicIcon from "../dynamicicon";
 
+import * as Ionicons from "react-ionicons";
 type RenderCategoryItemProps = {
   item: string;
   width: number;
@@ -58,7 +59,10 @@ const RenderCategoryItem: React.FC<RenderCategoryItemProps> = ({
     >
       <div className="gradient-overlay">
         <div className="icon-container">
-          <LogoNodejs name={category?.icon} size={60} color="white" />
+          <DynamicIcon
+            size={80}
+            iconName={category?.icon as keyof typeof Ionicons}
+          />
         </div>
         <div className="medium-item-text-container">
           {(() => {
