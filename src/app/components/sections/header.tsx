@@ -33,6 +33,7 @@ const Header: React.FC<HeaderProps> = ({ showLogo = false }) => {
           </Link>
 
           <div className="spacer" />
+          <div className="spacer" />
         </div>
       )}
 

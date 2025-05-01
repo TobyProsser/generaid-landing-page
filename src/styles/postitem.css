@@ -25,12 +25,12 @@
   flex-direction: row;
   justify-content: center;
   gap: 20px;
-  height: 150;
+  height: 150px;
 }
 
 .info-container {
   flex-direction: column;
-  gap: 10;
+  gap: 10px;
   justify-content: space-between;
 }
 
@@ -47,8 +47,8 @@
   justify-content: flex-end;
   align-items: flex-end;
   position: relative;
-  left: 0;
-  right: 0;
+  left: 0px;
+  right: 0px;
 }
 
 .price-gradient {
@@ -71,14 +71,14 @@
 }
 
 .profile-container {
-  margin: 5;
-  margin-top: 15;
+  margin: 5px;
+  margin-top: 15px;
   width: 85px;
   height: 85px;
 
   border-radius: 10px;
   overflow: hidden;
-  background-color: #ffbd33;
+  background-color: #ff3333;
 }
 .profile-container-align {
   display: flex;
@@ -99,11 +99,11 @@
   align-self: center;
   height: 102px;
   background-color: #e0e0e0;
-  border-radius: 10;
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  -ms-border-radius: 10;
-  -o-border-radius: 10;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .description-text {

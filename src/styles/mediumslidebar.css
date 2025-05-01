@@ -1,5 +1,5 @@
 .scroll-container {
-  max-width: 930; /* Keep content within bounds */
+  max-width: 930px; /* Keep content within bounds */
   overflow-x: auto; /* Enable scrolling */
   display: flex;
   justify-content: flex-start;

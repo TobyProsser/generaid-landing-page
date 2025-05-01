@@ -37,6 +37,7 @@ const TextList = ({ data, loading }: TextListProps) => {
       {data!.map((item) => (
         <li key={item.id || Math.random().toString()}>
           <TextListItem data={item} loading={loading!} />
+          <div style={{ height: 10 }} />
         </li>
       ))}
     </ul>

@@ -16,7 +16,7 @@ export const informationCategories: skillCategory[] = [
     id: "2",
     name: "Where We Are",
     icon: "bar-chart",
-    relatedSkills: "Python, Pandas, Machine Learning",
+    relatedSkills: "/whereweare",
     startColor: Colors.pinkRedStart,
     endColor: Colors.pinkRedEnd,
     description: "This is an updated blog to keep up to date on the...",

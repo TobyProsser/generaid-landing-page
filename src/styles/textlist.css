@@ -1,10 +1,11 @@
 .list-container {
   list-style: none;
-  padding: 0;
+  padding: 0px;
   align-self: center;
   align-content: center;
   align-items: center;
   justify-content: center;
+  background-color: transparent;
 }
 
 .placeholder-container {
@@ -25,6 +26,7 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  background-color: transparent;
 }
 
 .icon-placeholder {
@@ -55,4 +57,5 @@
 
 .skill-container {
   margin-top: 10px;
+  background-color: transparent;
 }

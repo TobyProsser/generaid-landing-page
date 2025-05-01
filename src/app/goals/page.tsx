@@ -1,30 +1,21 @@
 "use client"; // Required for state and effects
-
 import Header from "../components/sections/header";
 
-const CategoriesPage = () => {
+const GoalsPage = () => {
   return (
     <div style={{ backgroundColor: "white" }}>
       <div className="goals-page">
         <Header showLogo={true} />
 
-        <div className="page-container">
+        <div className="goals-page-container">
           <div className="title-section">
-            <h2
-              className="section-title"
-              style={{
-                fontSize: 36,
-              }}
-            >
-              Our Goal
-            </h2>
+            <h2 className="section-title">Our Goal</h2>
             <p
               className="section-subtitle"
               style={{
                 paddingLeft: "5%",
                 paddingTop: 20,
                 paddingBottom: 40,
-                fontSize: 32,
               }}
             >
               <ol>
@@ -51,21 +42,13 @@ const CategoriesPage = () => {
           </div>
 
           <div className="title-section">
-            <h2
-              className="section-title"
-              style={{
-                fontSize: 36,
-              }}
-            >
-              Mission Statment
-            </h2>
+            <h2 className="section-title">Mission Statment</h2>
             <p
               className="section-subtitle"
               style={{
                 paddingLeft: "5%",
                 paddingTop: 20,
                 paddingBottom: 40,
-                fontSize: 32,
               }}
             >
               To bridge generations through meaningful connections, fostering
@@ -74,21 +57,13 @@ const CategoriesPage = () => {
           </div>
 
           <div className="title-section">
-            <h2
-              className="section-title"
-              style={{
-                fontSize: 36,
-              }}
-            >
-              Vision Statement
-            </h2>
+            <h2 className="section-title">Vision Statement</h2>
             <p
               className="section-subtitle"
               style={{
                 paddingLeft: "5%",
                 paddingTop: 20,
                 paddingBottom: 40,
-                fontSize: 32,
               }}
             >
               A world where intergenerational relationships strengthen the
@@ -101,4 +76,4 @@ const CategoriesPage = () => {
   );
 };
 
-export default CategoriesPage;
+export default GoalsPage;

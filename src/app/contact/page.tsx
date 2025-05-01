@@ -27,7 +27,10 @@ const ContactPage = () => {
       <div className="tab-page">
         <Header showLogo={true} />
         <h2 className="section-title">Contact Us</h2>
-        <p className="section-subtitle">
+        <p
+          className="section-subtitle"
+          style={{ paddingRight: 20, paddingLeft: 20 }}
+        >
           Have a question or feedback? Fill out the form below.
         </p>
 
@@ -65,9 +68,10 @@ const ContactPage = () => {
             required
           />
 
-          <button type="submit" className="section-title">
+          <button type="submit" className="section-title centered">
             Send Message
           </button>
+          <div className="spacer" />
         </form>
       </div>
     </div>
