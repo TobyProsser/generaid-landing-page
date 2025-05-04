@@ -14,13 +14,24 @@ import MediumSlideBar from "./components/sliding/mediumslidebar";
 
 export default function Home() {
   const [dataLoaded, setDataLoaded] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
     document.body.style.zoom = "100%"; // Forces zoom level to default
+
+    // Check if user has already scrolled
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setHasScrolled(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    if (!dataLoaded) return; // Wait until data is loaded
+    if (!dataLoaded || hasScrolled) return; // Wait for data or cancel animation if user scrolled
 
     const scrollDown = () => {
       window.scrollTo({

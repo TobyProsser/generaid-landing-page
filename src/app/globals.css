@@ -106,14 +106,6 @@ body {
   justify-self: center;
   width: 100vw;
 }
-
-.categories-page {
-  padding: 20px;
-  background-color: #fff;
-  width: 100vw;
-  max-width: 920px;
-  justify-self: center;
-}
 .column-layout {
   display: flex;
   flex-direction: column;
@@ -286,15 +278,30 @@ body {
   align-content: flex-start;
 }
 
+.categories-page {
+  background-color: #fff;
+  width: 100vw;
+  max-width: 930px;
+  justify-self: center;
+}
+
 .categories-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  display: flex;
+  gap: 15px; /* Match spacing from MediumSlideBar */
+  flex-wrap: wrap;
+  padding: 10px 0; /* Add some breathing room */
+  align-self: center;
+  align-items: center;
+}
+
+.categories-grid::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for a cleaner look */
 }
 @media (max-width: 768px) {
   .categories-grid {
+    display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 100vw;
   }
 }
 

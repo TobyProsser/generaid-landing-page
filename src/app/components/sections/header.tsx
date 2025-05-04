@@ -53,7 +53,10 @@ const Header: React.FC<HeaderProps> = ({ showLogo = false }) => {
           text="Documentation"
           onClick={() => router.push("/documentation")}
         />
-        <SmallTextButton text="Donate" onClick={() => router.push("/donate")} />
+        <SmallTextButton
+          text="Donate"
+          onClick={() => router.push("/comingsoon")}
+        />
         <SmallTextButton
           text="Contact"
           onClick={() => router.push("/contact")}

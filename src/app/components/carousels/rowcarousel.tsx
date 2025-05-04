@@ -1,19 +1,39 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface CarouselProps {
   images: string[];
 }
 
-const positions = [
-  { x: -200, scale: 1.5, opacity: 1, zIndex: 3 }, // First position (offset left)
-  { x: 40, scale: 1, opacity: 0.9, zIndex: 2 }, // Second (moves to first)
-  { x: 250, scale: 1, opacity: 0.9, zIndex: 1 }, // Third (normal stack)
-  { x: 450, scale: 1, opacity: 0.9, zIndex: 0 }, // Fourth (normal stack)
-];
+const getPositions = (isMobile: boolean) => {
+  return isMobile
+    ? [
+        { x: -75, scale: 1.5, opacity: 1, zIndex: 3 }, // Centered
+        { x: 100, scale: 1, opacity: 0.9, zIndex: 2 },
+        { x: 200, scale: 1, opacity: 0.9, zIndex: 1 },
+        { x: 300, scale: 1, opacity: 0.9, zIndex: 0 },
+      ]
+    : [
+        { x: -200, scale: 1.5, opacity: 1, zIndex: 3 },
+        { x: 40, scale: 1, opacity: 0.9, zIndex: 2 },
+        { x: 250, scale: 1, opacity: 0.9, zIndex: 1 },
+        { x: 450, scale: 1, opacity: 0.9, zIndex: 0 },
+      ];
+};
 
-export default function StackCarousel({ images }: CarouselProps) {
+export default function RowCarousel({ images }: CarouselProps) {
   const [order, setOrder] = useState<number[]>([0, 1, 2, 3]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [positions, setPositions] = useState(getPositions(isMobile));
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      setPositions(getPositions(window.innerWidth < 768));
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const shiftLeft = () => {
     setOrder((prev) => {
@@ -43,7 +63,7 @@ export default function StackCarousel({ images }: CarouselProps) {
             aspectRatio: "1/1",
             width: "180px",
           }}
-          layoutId={`card-${index}`} // Helps Framer Motion track order changes
+          layoutId={`row-carousel-card-${index}`} // Helps Framer Motion track order changes
         />
       ))}
       <button

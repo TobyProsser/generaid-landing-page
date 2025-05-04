@@ -1,4 +1,4 @@
-"use client"; // Required for state and effects
+"use client";
 import { useEffect, useState } from "react";
 import Colors from "../../constants/Colors";
 import { skillCategory } from "../../constants/types";
@@ -60,7 +60,7 @@ const CategoriesPage = () => {
         <Header showLogo={true} />
 
         {loading ? (
-          <p>Loading categories...</p>
+          <p className="text-center">Loading categories...</p>
         ) : (
           <div className="categories-grid">
             {categories.map((category) => (

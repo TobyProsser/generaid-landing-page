@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Post } from "../../../constants/types";
 import "../../../styles/postitem.css";
 import RenderCategoryItem from "./mediumslideritem";
@@ -13,6 +13,14 @@ interface PostItemProps {
 const mockCategory = "1";
 
 const PostItem: React.FC<PostItemProps> = ({ item, skeleton }) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   if (!item) {
     return (
       <div className="post-container skeleton">
@@ -42,7 +50,7 @@ const PostItem: React.FC<PostItemProps> = ({ item, skeleton }) => {
           <div className="profile-container-align">
             <div className="profile-container">
               <img
-                src={`/profile_pictures/${item?.id}/coverImage`}
+                src={`/images/placeholder.jpg`} //`/profile_pictures/${item?.id}/coverImage`
                 alt="Profile"
                 className="profile-image"
               />
@@ -52,7 +60,13 @@ const PostItem: React.FC<PostItemProps> = ({ item, skeleton }) => {
       </div>
       <div style={{ height: 10 }} />
       <div className="description-container">
-        <p className="description-text">{item?.description || ""}</p>
+        <p className="description-text">
+          {item?.description
+            ? isMobile
+              ? item.description.slice(0, 107) + "..." // Limit on mobile
+              : item.description
+            : ""}
+        </p>
       </div>
     </div>
   ) : (
@@ -74,4 +88,5 @@ const PostItem: React.FC<PostItemProps> = ({ item, skeleton }) => {
     </div>
   );
 };
+
 export default PostItem;

@@ -21,6 +21,12 @@ const messagePosts = [
   "/images/VisionStatement.png",
   "/images/square_1200_1200.png",
 ];
+const secondMessagePosts = [
+  "/images/MissionStatement.png",
+  "/images/SomethingNew.png",
+  "/images/VisionStatement.png",
+  "/images/square_1200_1200.png",
+];
 
 const WherewWeArePage = () => {
   return (
@@ -33,7 +39,6 @@ const WherewWeArePage = () => {
             <h1 className="title">The App</h1>
             <RowCarousel images={messagePosts} />
             <h2 className="section-title">UI / UX Design</h2>
-            <StackCarousel images={messagePosts} />
             <p
               className="section-subtitle"
               style={{
@@ -99,7 +104,7 @@ const WherewWeArePage = () => {
               users seeking and offering assistance
             </p>
 
-            <RotatingCarousel images={images} />
+            <ImageCarousel images={images} />
           </div>
           <div className="title-section">
             <h2 className="section-title">Modern Aesthetic & Branding</h2>
@@ -112,9 +117,14 @@ const WherewWeArePage = () => {
               }}
             >
               An intuitive interface built for accessibility, trust, and ease of
-              use
+              use.
             </p>
-            <ImageCarousel images={images} />
+
+            <div className="spacer" />
+            <div className="spacer" />
+            <RotatingCarousel images={images} />
+
+            <div className="spacer" />
           </div>
           <div className="title-section">
             <h2 className="section-title">Frontend Development</h2>
@@ -193,6 +203,8 @@ const WherewWeArePage = () => {
           <div className="title-section">
             <h1 className="title">Social Media {`\n`} & Brand Communication</h1>
             <h2 className="section-title">Statement Posts</h2>
+
+            <StackCarousel images={secondMessagePosts} />
             <p
               className="section-subtitle"
               style={{

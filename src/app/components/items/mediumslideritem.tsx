@@ -89,7 +89,7 @@ const RenderCategoryItem: React.FC<RenderCategoryItemProps> = ({
               <>
                 <p className="button-text primary-text">{firstLine}</p>
                 {secondLine && (
-                  <p className="button-text secondary-text">{secondLine}</p>
+                  <p className="med-button-text secondary-text">{secondLine}</p>
                 )}
               </>
             );

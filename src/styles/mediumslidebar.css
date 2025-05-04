@@ -41,4 +41,5 @@
   display: none; /* Hide scrollbar on WebKit-based browsers */
 }
 .med-wrapper {
+  display: flex;
 }

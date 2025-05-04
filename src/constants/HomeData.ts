@@ -25,7 +25,7 @@ export const informationCategories: skillCategory[] = [
     id: "3",
     name: "How We Achieve Success",
     icon: "paint-brush",
-    relatedSkills: "Figma, Adobe XD, Wireframing",
+    relatedSkills: "/comingsoon",
     startColor: Colors.yellowGreenStart,
     endColor: Colors.yellowGreenEnd,
     description: "The road map to reach our vision by completing the...",

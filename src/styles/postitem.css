@@ -79,6 +79,7 @@
   border-radius: 10px;
   overflow: hidden;
   background-color: #ff3333;
+  border-width: 5px;
 }
 .profile-container-align {
   display: flex;
