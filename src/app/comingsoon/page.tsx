@@ -1,3 +1,4 @@
+"use client";
 import Header from "../components/sections/header"; // Adjust path if needed
 
 export default function ComingSoon() {

@@ -1,11 +1,9 @@
 "use client"; // Required for state and effects
 
 //import CircularCarousel from "../components/carousels/circularcarousel";
-import ImageCarousel from "../components/carousels/imagecarousel";
 import RotatingCarousel from "../components/carousels/rotatingcarousel";
 import RowCarousel from "../components/carousels/rowcarousel";
 import StackCarousel from "../components/carousels/stackcarousel";
-import MultiItemCarousel from "../components/carousels/swiper";
 import Header from "../components/sections/header";
 
 const images = [
@@ -15,11 +13,26 @@ const images = [
   "/images/square_1200_1200.png",
 ];
 
-const messagePosts = [
-  "/images/MissionStatement.png",
-  "/images/SomethingNew.png",
-  "/images/VisionStatement.png",
-  "/images/square_1200_1200.png",
+const uiDesign = [
+  "/images/screenshots/homepage.png",
+  "/images/screenshots/login.png",
+  "/images/screenshots/findfriend.png",
+  "/images/screenshots/messages.png",
+];
+
+const onboarding = [
+  "/images/screenshots/login.png",
+  "/images/screenshots/signup.png",
+  "/images/screenshots/creatingaccount.png",
+  "/images/screenshots/creatingaccount1.png",
+];
+
+const postFlow = [
+  "/images/screenshots/homepage.png",
+  "/images/screenshots/profilepage.png",
+
+  "/images/screenshots/findfriend.png",
+  "/images/screenshots/post.png",
 ];
 const secondMessagePosts = [
   "/images/MissionStatement.png",
@@ -34,10 +47,10 @@ const WherewWeArePage = () => {
       <div className="goals-page">
         <Header showLogo={true} />
 
-        <div className="goals-page-container">
+        <div className="whereweare-page-container">
           <div className="title-section">
             <h1 className="title">The App</h1>
-            <RowCarousel images={messagePosts} />
+
             <h2 className="section-title">UI / UX Design</h2>
             <p
               className="section-subtitle"
@@ -66,7 +79,13 @@ const WherewWeArePage = () => {
               </ol>
             </p>
           </div>
-
+          <div style={{ marginTop: 520 }}>
+            <RowCarousel
+              images={uiDesign}
+              size={300}
+              uniquekeymodifier={"uidesign"}
+            />
+          </div>
           <div className="title-section">
             <h2 className="section-title">Onboarding Screens:</h2>
             <p
@@ -77,12 +96,17 @@ const WherewWeArePage = () => {
                 paddingBottom: 40,
               }}
             >
-              To bridge generations through meaningful connections, fostering
-              stronger, united communities within our cities.
+              The start of the users journey...
             </p>
-            <MultiItemCarousel images={images} />
           </div>
-
+          <div style={{ marginTop: 520 }}>
+            <StackCarousel
+              images={onboarding}
+              size={300}
+              uniquekeymodifier={"Onboarding"}
+            />
+          </div>
+          <div className="spacer" />
           <div className="title-section">
             <h2 className="section-title">Task Posting Flow</h2>
             <p
@@ -104,7 +128,13 @@ const WherewWeArePage = () => {
               users seeking and offering assistance
             </p>
 
-            <ImageCarousel images={images} />
+            <div style={{ marginTop: 370 }}>
+              <RowCarousel
+                images={postFlow}
+                size={250}
+                uniquekeymodifier={"Posting"}
+              />
+            </div>
           </div>
           <div className="title-section">
             <h2 className="section-title">Modern Aesthetic & Branding</h2>
@@ -122,7 +152,11 @@ const WherewWeArePage = () => {
 
             <div className="spacer" />
             <div className="spacer" />
-            <RotatingCarousel images={images} />
+            <RotatingCarousel
+              images={images}
+              isSquare={true}
+              uniquekeymodifier={"Branding"}
+            />
 
             <div className="spacer" />
           </div>
@@ -149,7 +183,7 @@ const WherewWeArePage = () => {
               interface.
             </p>
           </div>
-          <div className="title-section">
+          <div className="t itle-section">
             <h2 className="section-title">Backend Development</h2>
             <p
               className="section-subtitle"
@@ -204,7 +238,6 @@ const WherewWeArePage = () => {
             <h1 className="title">Social Media {`\n`} & Brand Communication</h1>
             <h2 className="section-title">Statement Posts</h2>
 
-            <StackCarousel images={secondMessagePosts} />
             <p
               className="section-subtitle"
               style={{
@@ -225,6 +258,14 @@ const WherewWeArePage = () => {
                 </li>
               </ol>
             </p>
+          </div>
+          <div style={{ marginTop: 225, marginBottom: 75 }}>
+            <StackCarousel
+              images={secondMessagePosts}
+              isSquare={true}
+              size={300}
+              uniquekeymodifier={"Statement"}
+            />
           </div>
           <div className="title-section">
             <h2 className="section-title">Collaboration Posts</h2>

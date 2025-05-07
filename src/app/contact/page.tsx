@@ -1,4 +1,5 @@
 "use client";
+import { getFunctions, httpsCallable } from "firebase/functions";
 import React, { useState } from "react";
 import Header from "../components/sections/header";
 
@@ -8,6 +9,7 @@ const ContactPage = () => {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -15,11 +17,26 @@ const ContactPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(
-      `Message Sent!\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`
-    );
+
+    const functions = getFunctions();
+    const sendEmail = httpsCallable<
+      { name: string; email: string; message: string },
+      { success: boolean; error?: string }
+    >(functions, "sendEmail");
+
+    try {
+      const result = await sendEmail(formData);
+      if (result.data.success) {
+        setStatus("Email sent successfully!");
+      } else {
+        setStatus("Failed to send email.");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error); // Logs the error in the console
+      setStatus("Error sending email.");
+    }
   };
 
   return (
@@ -73,6 +90,8 @@ const ContactPage = () => {
           </button>
           <div className="spacer" />
         </form>
+
+        {status && <p>{status}</p>}
       </div>
     </div>
   );

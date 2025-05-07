@@ -1,3 +1,4 @@
+import Colors from "@components/constants/Colors";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -15,9 +16,17 @@ const positions: Record<
 
 interface CarouselProps {
   images: string[];
+  uniquekeymodifier: string;
+  isSquare?: boolean;
+  size?: number;
 }
 
-export default function CardinalCarousel({ images }: CarouselProps) {
+export default function CardinalCarousel({
+  images,
+  isSquare,
+  size,
+  uniquekeymodifier,
+}: CarouselProps) {
   const [order, setOrder] = useState<Direction[]>([
     "north",
     "east",
@@ -34,30 +43,47 @@ export default function CardinalCarousel({ images }: CarouselProps) {
   };
 
   return (
-    <div className="relative w-[400px] h-[400px] mx-auto overflow-visible">
-      {order.map((direction, index) => (
-        <motion.img
-          key={index}
-          src={images[index % images.length]} // Ensure looping images
-          alt={direction}
-          initial={positions[direction]}
-          animate={positions[direction]}
-          transition={{ duration: 0.5 }}
-          className="absolute"
-        />
-      ))}
-      <button
-        onClick={shiftLeft}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-md shadow-md"
-      >
-        ◀
-      </button>
-      <button
-        onClick={shiftRight}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-md shadow-md"
-      >
-        ▶
-      </button>
+    <div className="relative w-[400px] h-[450px] mx-auto flex flex-col items-center justify-between overflow-visible">
+      {/* Carousel Section */}
+      <div className="relative w-full h-[320px] flex items-center justify-center">
+        {order.map((direction, index) => (
+          <motion.img
+            key={index + uniquekeymodifier}
+            src={images[index % images.length]}
+            alt={direction}
+            initial={positions[direction]}
+            animate={positions[direction]}
+            transition={{ duration: 0.5 }}
+            className="absolute"
+            style={{
+              aspectRatio: isSquare ? "1/1" : "7/16",
+              width: isSquare ? `${size ?? 180}px` : `${size}px`,
+              height: isSquare
+                ? `${size ?? 180}px`
+                : `${(size ?? 180) * 1.6}px`,
+              marginBottom: isSquare ? "0px" : `${(size ?? 180) * 1.5}px`,
+            }}
+            layoutId={`rotating-carousel-card-${index}-${uniquekeymodifier}`}
+          />
+        ))}
+      </div>
+
+      {/* Buttons Section Below Carousel */}
+      <div className="relative mt-4 flex gap-4 z-10">
+        <button
+          onClick={shiftLeft}
+          className="bg-black text-white px-6 py-3 rounded-md shadow-md hover:bg-gray-800 transition"
+          style={{ backgroundColor: Colors.grey }}
+        >
+          ◀
+        </button>
+        <button
+          onClick={shiftRight}
+          className="bg-black text-white px-6 py-3 rounded-md shadow-md hover:bg-gray-800 transition"
+        >
+          ▶
+        </button>
+      </div>
     </div>
   );
 }

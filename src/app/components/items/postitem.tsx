@@ -13,9 +13,10 @@ interface PostItemProps {
 const mockCategory = "1";
 
 const PostItem: React.FC<PostItemProps> = ({ item, skeleton }) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

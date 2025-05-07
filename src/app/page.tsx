@@ -18,6 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     document.body.style.zoom = "100%"; // Forces zoom level to default
+    if (typeof window === "undefined") return; // Prevents SSR issues
 
     // Check if user has already scrolled
     const handleScroll = () => {
@@ -32,7 +33,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!dataLoaded || hasScrolled) return; // Wait for data or cancel animation if user scrolled
-
+    if (typeof window === "undefined") return;
     const scrollDown = () => {
       window.scrollTo({
         top: window.innerHeight / 3, // Adjust how far down you want to scroll
