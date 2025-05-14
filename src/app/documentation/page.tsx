@@ -3,26 +3,23 @@ import Header from "../components/sections/header";
 
 const PDFPage = () => {
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div
+      style={{ display: "flex", background: "white", justifyContent: "center" }}
+    >
       <div className="tab-page">
         <Header showLogo={true} />
 
         <section className="pdf-section">
           <h2 className="section-title">Project Proposal</h2>
           <div className="spacer" />
-          <embed
-            src="/pdfs/project-proposal.pdf"
-            type="application/pdf"
-            className="pdf-viewer"
-          />
+          <iframe src="/pdfs/project-proposal.pdf" className="pdf-viewer" />
         </section>
         <div className="spacer" />
         <section className="pdf-section">
           <h2 className="section-title">Technical Documentation</h2>
           <div className="spacer" />
-          <embed
+          <iframe
             src="/pdfs/Technical-Documentation.pdf"
-            type="application/pdf"
             className="pdf-viewer"
           />
         </section>

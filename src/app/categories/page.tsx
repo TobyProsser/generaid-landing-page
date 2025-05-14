@@ -55,7 +55,9 @@ const CategoriesPage = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div
+      style={{ display: "flex", background: "white", justifyContent: "center" }}
+    >
       <div className="categories-page">
         <Header showLogo={true} />
 

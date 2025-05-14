@@ -3,7 +3,13 @@ import Header from "../components/sections/header";
 
 const GoalsPage = () => {
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div
+      style={{
+        display: "flex",
+        background: "white",
+        justifyContent: "center",
+      }}
+    >
       <div className="goals-page">
         <Header showLogo={true} />
 

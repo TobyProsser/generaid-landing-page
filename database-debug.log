@@ -1,0 +1,3 @@
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+16:14:08.941 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+16:14:09.049 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000

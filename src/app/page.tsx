@@ -20,7 +20,7 @@ export default function Home() {
     document.body.style.zoom = "100%"; // Forces zoom level to default
     if (typeof window === "undefined") return; // Prevents SSR issues
 
-    // Check if user has already scrolled
+    // Track user scrolling to prevent animation from replaying
     const handleScroll = () => {
       if (window.scrollY > 0) {
         setHasScrolled(true);
@@ -32,11 +32,12 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (!dataLoaded || hasScrolled) return; // Wait for data or cancel animation if user scrolled
+    if (!dataLoaded || hasScrolled) return; // Stop animation if user has scrolled
     if (typeof window === "undefined") return;
+
     const scrollDown = () => {
       window.scrollTo({
-        top: window.innerHeight / 3, // Adjust how far down you want to scroll
+        top: window.innerHeight / 3,
         behavior: "smooth",
       });
     };
@@ -47,12 +48,12 @@ export default function Home() {
           top: 0,
           behavior: "smooth",
         });
-      }, 1500); // Delay before scrolling up
+      }, 1500);
     };
 
     scrollDown();
     scrollUp();
-  }, [dataLoaded]); // Runs when `dataLoaded` changes
+  }, [dataLoaded, hasScrolled]); // Prevent animation replay if user already scrolled
 
   return (
     <motion.div
@@ -62,17 +63,12 @@ export default function Home() {
       className="backgroundWrapper"
     >
       <div className="home-container">
-        {/* Large Centered Image */}
         <img src="/images/Logo.png" alt="Logo" className="home-image" />
         <div className="headerSpacer" />
         <Header />
         <div className="mobileSpacer" />
-        {/* Column Layout */}
         <div className="column-layout">
-          {/* Second Title */}
           <h2 className="section-title">Popular</h2>
-
-          {/* MediumSlideBar Component */}
           <div className="align-medium-bar">
             <MediumSlideBar
               width={300}
@@ -81,15 +77,12 @@ export default function Home() {
             />
           </div>
           <div className="spacer" />
-          {/* Content Grid */}
-          <div>
-            <PageGrid
-              posts={fakePosts}
-              listData1={informationCategories}
-              listData2={socialMediaCategories}
-              images={[]}
-            />
-          </div>
+          <PageGrid
+            posts={fakePosts}
+            listData1={informationCategories}
+            listData2={socialMediaCategories}
+            images={[]}
+          />
         </div>
       </div>
     </motion.div>

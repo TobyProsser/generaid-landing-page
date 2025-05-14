@@ -13,18 +13,15 @@ const positions: Record<
   west: { x: -200, y: -50, scale: 0.67, opacity: 0.5, zIndex: 2 },
   south: { x: 0, y: -100, scale: 0.85, opacity: 0.25, zIndex: 1 },
 };
-
 interface CarouselProps {
   images: string[];
   uniquekeymodifier: string;
-  isSquare?: boolean;
-  size?: number;
+  size?: number; // Optional height setter
 }
 
 export default function CardinalCarousel({
   images,
-  isSquare,
-  size,
+  size = 200, // Default height for all images
   uniquekeymodifier,
 }: CarouselProps) {
   const [order, setOrder] = useState<Direction[]>([
@@ -56,12 +53,9 @@ export default function CardinalCarousel({
             transition={{ duration: 0.5 }}
             className="absolute"
             style={{
-              aspectRatio: isSquare ? "1/1" : "7/16",
-              width: isSquare ? `${size ?? 180}px` : `${size}px`,
-              height: isSquare
-                ? `${size ?? 180}px`
-                : `${(size ?? 180) * 1.6}px`,
-              marginBottom: isSquare ? "0px" : `${(size ?? 180) * 1.5}px`,
+              height: `${size}px`, // Uniform height
+              width: "auto", // Auto width based on aspect ratio
+              objectFit: "cover",
             }}
             layoutId={`rotating-carousel-card-${index}-${uniquekeymodifier}`}
           />

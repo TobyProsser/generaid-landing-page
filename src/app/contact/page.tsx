@@ -1,4 +1,5 @@
 "use client";
+
 import { getFunctions, httpsCallable } from "firebase/functions";
 import React, { useState } from "react";
 import Header from "../components/sections/header";
@@ -10,6 +11,8 @@ const ContactPage = () => {
     message: "",
   });
   const [status, setStatus] = useState("");
+  const [buttonText, setButtonText] = useState("Send Message"); // Dynamic button text
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -19,6 +22,8 @@ const ContactPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setButtonText("Sending..."); // Temporary text while processing
 
     const functions = getFunctions();
     const sendEmail = httpsCallable<
@@ -30,17 +35,32 @@ const ContactPage = () => {
       const result = await sendEmail(formData);
       if (result.data.success) {
         setStatus("Email sent successfully!");
+        setButtonText("Message Sent ✅"); // Success message on button
       } else {
         setStatus("Failed to send email.");
+        setButtonText("Message Failed ❌"); // Failure message on button
       }
     } catch (error) {
-      console.error("Error sending email:", error); // Logs the error in the console
-      setStatus("Error sending email.");
+      if (error instanceof Error) {
+        console.error("Error sending email:", error);
+        setStatus(`Error: ${error.message}`);
+      } else {
+        console.error("Unknown error:", error);
+        setStatus("An unexpected error occurred.");
+      }
+      setButtonText("Message Failed ❌");
     }
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setButtonText("Send Message"); // Reset button text after 3 seconds
+    }, 3000);
   };
 
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div
+      style={{ display: "flex", background: "white", justifyContent: "center" }}
+    >
       <div className="tab-page">
         <Header showLogo={true} />
         <h2 className="section-title">Contact Us</h2>
@@ -85,9 +105,21 @@ const ContactPage = () => {
             required
           />
 
-          <button type="submit" className="section-title centered">
-            Send Message
+          <button
+            type="submit"
+            className="section-title centered"
+            style={{
+              backgroundColor: isSubmitting ? "#555" : "#000",
+              color: "white",
+              cursor: isSubmitting ? "not-allowed" : "pointer",
+              opacity: isSubmitting ? 0.7 : 1,
+              transition: "opacity 0.3s ease",
+            }}
+            disabled={isSubmitting}
+          >
+            {buttonText}
           </button>
+
           <div className="spacer" />
         </form>
 

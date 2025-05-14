@@ -4,13 +4,14 @@
 import RotatingCarousel from "../components/carousels/rotatingcarousel";
 import RowCarousel from "../components/carousels/rowcarousel";
 import StackCarousel from "../components/carousels/stackcarousel";
+import ImagePair from "../components/items/imagepair";
 import Header from "../components/sections/header";
 
 const images = [
-  "/images/square_1200_1200.png",
-  "/images/square_1200_1200.png",
-  "/images/square_1200_1200.png",
-  "/images/square_1200_1200.png",
+  "/images/logo.png",
+  "/images/MissionStatement.png",
+  "/images/screenshots/homemobile.png",
+  "/images/screenshots/homepage.png",
 ];
 
 const uiDesign = [
@@ -43,7 +44,9 @@ const secondMessagePosts = [
 
 const WherewWeArePage = () => {
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div
+      style={{ display: "flex", background: "white", justifyContent: "center" }}
+    >
       <div className="goals-page">
         <Header showLogo={true} />
 
@@ -154,8 +157,8 @@ const WherewWeArePage = () => {
             <div className="spacer" />
             <RotatingCarousel
               images={images}
-              isSquare={true}
               uniquekeymodifier={"Branding"}
+              size={300}
             />
 
             <div className="spacer" />
@@ -234,6 +237,16 @@ const WherewWeArePage = () => {
               </ol>
             </p>
           </div>
+          <ImagePair
+            portraitSrc="/images/screenshots/homemobile.png"
+            landscapeSrc="/images/screenshots/home.png"
+            altText="website home"
+          />
+          <ImagePair
+            portraitSrc="/images/screenshots/infomobile.png"
+            landscapeSrc="/images/screenshots/info.png"
+            altText="website info"
+          />
           <div className="title-section">
             <h1 className="title">Social Media {`\n`} & Brand Communication</h1>
             <h2 className="section-title">Statement Posts</h2>
@@ -291,6 +304,16 @@ const WherewWeArePage = () => {
               </ol>
             </p>
           </div>
+          <img
+            src={"/images/collab.png"}
+            alt={"Portrait Version"}
+            style={{
+              width: "500px",
+              objectFit: "scale-down",
+              justifySelf: "center",
+              borderRadius: "8px",
+            }}
+          />
           <div className="title-section">
             <h2 className="section-title">Design Language & Consistency</h2>
             <p
@@ -316,6 +339,13 @@ const WherewWeArePage = () => {
               </ol>
             </p>
           </div>
+          <div className={"spacer"} style={{ height: 100 }} />
+          <RotatingCarousel
+            images={images}
+            uniquekeymodifier={"Branding"}
+            size={300}
+          />
+          <div className={"spacer"} style={{ height: 100 }} />
         </div>
       </div>
     </div>
