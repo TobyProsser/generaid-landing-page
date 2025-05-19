@@ -20,7 +20,7 @@ const PageGrid: React.FC<PageGridProps> = ({ posts, listData1, listData2 }) => {
           Learn more about our mission!
         </h3>
         <div className="spacer" />
-        <div style={{ marginLeft: "5%" }}>
+        <div style={{ marginLeft: "0%" }}>
           <TextList data={listData1} />
         </div>
       </div>
