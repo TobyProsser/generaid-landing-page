@@ -8,6 +8,7 @@ import { fetchCategoryById } from "../../../utils/firestoreHelpers";
 import DynamicIcon from "../dynamicicon";
 
 import * as Ionicons from "react-ionicons";
+import tinycolor from "tinycolor2";
 type RenderCategoryItemProps = {
   item: string;
   width: number;
@@ -44,7 +45,9 @@ const RenderCategoryItem: React.FC<RenderCategoryItemProps> = ({
     ? [category.startColor, category.endColor]
     : [randomPair.start, randomPair.end];
   const loadingColors = ["#e0e0e0", "#c0c0c0"];
+  const shadowColor = tinycolor(colors[0]).setAlpha(0.15).toRgbString();
 
+  console.log("shadow color ", shadowColor);
   return (
     <button
       className="category-button"
@@ -54,6 +57,8 @@ const RenderCategoryItem: React.FC<RenderCategoryItemProps> = ({
         background: loading
           ? `linear-gradient(to right, ${loadingColors[0]}, ${loadingColors[1]})`
           : `linear-gradient(to right, ${colors[0]}, ${colors[1]})`,
+        boxShadow: `0px 2px 6px ${shadowColor}`,
+        marginBottom: 20,
       }}
       onClick={() => {}}
     >

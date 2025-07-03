@@ -25,10 +25,10 @@ const GoalsPage = () => {
               }}
             >
               <ol>
-                <li>
-                  <strong>
+                <li style={{ marginBottom: 40 }}>
+                  <span className="bold">
                     Facilitate Intergenerational Support and Connection
-                  </strong>
+                  </span>
                   – Bridge generational gaps by seamlessly connecting
                   individuals of different ages, fostering stronger communities
                   within cities. By enabling meaningful exchanges of assistance,
@@ -37,9 +37,9 @@ const GoalsPage = () => {
                   intergenerational friendships.
                 </li>
                 <li>
-                  <strong>
+                  <span className="bold">
                     Provide Accessible Task Assistance and Income Opportunities
-                  </strong>
+                  </span>
                   – Offer a platform where users can request help with tasks
                   while giving others a flexible way to earn income.
                 </li>

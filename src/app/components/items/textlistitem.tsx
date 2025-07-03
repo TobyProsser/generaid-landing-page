@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import * as Ionicons from "react-ionicons";
+import tinycolor from "tinycolor2";
 import { skillCategory } from "../../../constants/types";
 import "../../../styles/textlistitem.css";
 import DynamicIcon from "../dynamicicon";
@@ -12,6 +13,7 @@ interface TextListItemProps {
 }
 
 const TextListItem: React.FC<TextListItemProps> = ({ data, loading }) => {
+  const color = tinycolor(data.endColor).setAlpha(0.35).toRgbString();
   const router = useRouter();
   const handleClick = () => {
     router.push(data.relatedSkills);
@@ -27,6 +29,7 @@ const TextListItem: React.FC<TextListItemProps> = ({ data, loading }) => {
               background: loading
                 ? `linear-gradient(to right, #c0c0c0, #c0c0c0)`
                 : `linear-gradient(to right, ${data.startColor}, ${data.endColor})`,
+              boxShadow: `0px 2px 6px ${color}`,
             }}
           >
             <div className="centered">

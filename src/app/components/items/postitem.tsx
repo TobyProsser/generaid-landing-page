@@ -64,7 +64,7 @@ const PostItem: React.FC<PostItemProps> = ({ item, skeleton }) => {
         <p className="description-text">
           {item?.description
             ? isMobile
-              ? item.description.slice(0, 107) + "..." // Limit on mobile
+              ? item.description.slice(0, 100) + "..." // Limit on mobile
               : item.description
             : ""}
         </p>

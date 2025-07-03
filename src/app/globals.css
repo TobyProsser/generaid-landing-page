@@ -104,7 +104,14 @@ body {
   max-width: 100vw;
   overflow: visible;
 }
-
+.future-plan-container {
+  max-width: 100vw;
+  overflow: visible;
+}
+.future-plan-page {
+  max-width: 930px;
+  width: 100vw;
+}
 @media (max-width: 768px) {
   .goals-page {
     max-width: 100vw;
@@ -195,6 +202,12 @@ body {
   margin-top: 30px;
   margin-left: 5%;
   letter-spacing: 1.26px;
+}
+.bold {
+  font-size: clamp(28px, 4vw, 42px);
+
+  color: #1717178c;
+  font-weight: bold;
 }
 .section-title {
   align-self: flex-start;

@@ -25,7 +25,7 @@ export const informationCategories: skillCategory[] = [
     id: "3",
     name: "How We Achieve Success",
     icon: "paint-brush",
-    relatedSkills: "/comingsoon",
+    relatedSkills: "/achievingsuccess",
     startColor: Colors.yellowGreenStart,
     endColor: Colors.yellowGreenEnd,
     description: "The road map to reach our vision by completing the...",
